@@ -7,11 +7,21 @@ function Footer() {
   const time = new Date();
   const hour = time.getHours();
   const minutes = time.getMinutes();
-
+  const isOpen = hour >= OPEN_HOUR && hour < CLOSE_HOUR
 
   return (
     <footer className="footer">
-      It's {hour}:{minutes.toString().padStart(2, '0')} {(hour >= OPEN_HOUR) && (hour < CLOSE_HOUR) ? "We're open!" : "We're closed!"}
+      {isOpen ? (
+        <div className="order">
+          <p>We're open until {CLOSE_HOUR}:00. Come visit us or order online.</p>
+          <button className="btn">Order</button>
+        </div>
+      )
+    : (
+        <div className="order">
+          <p>It's {hour}:{minutes} We're closed! Coming back tomorrow at {OPEN_HOUR}:00.</p>
+        </div>
+      )}
     </footer>
   )
 }
