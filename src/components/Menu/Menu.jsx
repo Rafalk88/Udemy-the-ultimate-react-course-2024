@@ -12,8 +12,8 @@ function Menu() {
           <p>Authentic Italian cuisine. 6 creative dishes to choose from. All from our stone oven, all organic, all delicious</p>
           <ul className="pizzas">
             {
-              pizzaData.map((pizza) => (
-                <Pizza key={pizza.id} {...pizza} />
+              pizzaData.map((pizza, key) => (
+                <Pizza key={key} {...pizza} />
               ))
             }
           </ul>
