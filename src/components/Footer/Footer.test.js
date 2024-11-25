@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Footer } from './Footer';
 
@@ -39,5 +39,18 @@ describe('Footer Component', () => {
     expect(
       screen.getByText("It's 23:15 We're closed! Coming back tomorrow at 12:00.")
     ).toBeInTheDocument();
+  });
+
+  it('triggers alert when the "Order" button is clicked during opening hours', () => {
+    mockDate(14, 30);
+    const alertMock = jest.spyOn(window, 'alert').mockImplementation(() => {});
+
+    render(<Footer />);
+
+    const orderButton = screen.getByRole('button', { name: /Order/i });
+    fireEvent.click(orderButton);
+
+    expect(alertMock).toHaveBeenCalledTimes(1);
+    expect(alertMock).toHaveBeenCalledWith('Handle ordering in the future.');
   });
 });

@@ -9,12 +9,16 @@ function Footer() {
   const minutes = time.getMinutes();
   const isOpen = hour >= OPEN_HOUR && hour < CLOSE_HOUR
 
+  function handleOrder() {
+    alert('Handle ordering in the future.')
+  }
+
   return (
     <footer className="footer">
       {isOpen ? (
         <div className="order">
           <p>We're open until {CLOSE_HOUR}:00. Come visit us or order online.</p>
-          <button className="btn">Order</button>
+          <button className="btn" onClick={handleOrder}>Order</button>
         </div>
       )
     : (
