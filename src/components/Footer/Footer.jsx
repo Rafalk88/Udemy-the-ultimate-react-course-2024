@@ -10,7 +10,7 @@ function Footer() {
 
 
   return (
-    <footer>
+    <footer className="footer">
       It's {hour}:{minutes.toString().padStart(2, '0')} {(hour >= OPEN_HOUR) && (hour < CLOSE_HOUR) ? "We're open!" : "We're closed!"}
     </footer>
   )
