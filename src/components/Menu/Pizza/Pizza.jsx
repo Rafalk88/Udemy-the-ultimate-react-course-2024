@@ -1,4 +1,4 @@
-import { pizzaData } from '../../data';
+import { pizzaData } from '../../../data';
 
 function Pizza() {
   return (

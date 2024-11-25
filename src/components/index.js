@@ -1,3 +1,3 @@
 export { Header } from './Header';
-export { Pizza } from './Pizza';
+export { Menu } from './Menu';
 export { Footer } from './Footer';
